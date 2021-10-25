@@ -1,0 +1,27 @@
+<h3 class="p-3 text-center">Angular - Display a list of items with ngFor</h3>
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of list">
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>
+                  <button (click)="displayDetails(item);" type="button" class="btn btn-primary">View Details</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br><br>
+
+<app-details [item] = "selectedItem" *ngIf="show"></app-details>
+
+
+<app-create (newItemEvent)="addItem($event)"></app-create>
