@@ -8,13 +8,19 @@ import { DetailsComponent } from './details/details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { PhoneNumberValidator } from './directive/validators/phoneNumber.validator';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     DetailsComponent,
-    CreateComponent
+    CreateComponent,
+    RegisterComponent,
+    PhoneNumberValidator,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
