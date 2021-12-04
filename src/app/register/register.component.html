@@ -1,0 +1,49 @@
+  <main class="main d-flex">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto" style="max-width: 100% !important; flex: 0 0 100%;">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form #registerForm="ngForm">
+                <h1>Register</h1>
+                <p class="text-muted">Create your account</p>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">user name</span>
+                  </div>
+                  <input name="username" [(ngModel)]="user.username" type="text" class="form-control" placeholder="Username" autocomplete="username" required>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">email</span>
+                  </div>
+                  <input name="email" #email="ngModel" [(ngModel)]="user.email" type="text" class="form-control" placeholder="Email" autocomplete="email" required>
+                </div>
+                <div *ngIf="email.touched && email.invalid"  class="text-danger">
+                  <p *ngIf="email.touched && email.errors?.required" >Email is required</p>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Phone</span>
+                  </div>
+                  <input name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="user.phoneNumber" type="text" class="form-control" placeholder="Phone Number" autocomplete="phoneNumber" phoneNumberValidator>
+                </div>
+                <div *ngIf="phoneNumber.touched && phoneNumber.invalid"  class="text-danger">
+                  <p *ngIf="phoneNumber.touched && phoneNumber.errors?.phoneNumberInvalid" >Invalid Phone Number</p>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                  </div>
+                  <input name="password" [(ngModel)]="user.password" type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
+                </div>
+                <button type="button" [disabled]="!registerForm.valid" class="btn btn-block btn-success" (click)="createAccount(registerForm);" >Create Account</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
