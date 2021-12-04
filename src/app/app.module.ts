@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { PhoneNumberValidator } from './directive/validators/phoneNumber.validator';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     CreateComponent,
     RegisterComponent,
     PhoneNumberValidator,
-    RegisterUserComponent
+    RegisterUserComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
